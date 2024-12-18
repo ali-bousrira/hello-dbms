@@ -19,7 +19,7 @@ Une data warehouse est un espace de stockage qui organise et nettoye des donnée
 Un lake house est un espace de stockage hybride entre un data lake est une data warehouse.  
 Là où un data lake va pouvoir stocké énormément de données diverses, elles seront plus compliqué à analyser ne répondant pas à des requêtes complexe. Contrairement au data warehouse qui ne propose pas une grande diversité de données à stocker mais qui permettra une analyse beaucoup plus poussé. Le coût et également supérieur au data lake demandant une technologie plus avancé que ce dernier. Le lake house étant un hybride des deux il s'impose comme un juste milieux des critères précendent.  
 
-![alt text](https://github.com/ali-bousrira/hello-dbms/blob/main/datawarehouseschema.png?raw=true)  
+![alt text](https://github.com/ali-bousrira/hello-dbms/blob/main/image/datawarehouseschema.png?raw=true)  
 
 ## D.
 Un Système de Gestion de Bases de Données (SGBD) est un logiciel qui permet de créer, organiser, gérer et manipuler des bases de données. Il permet de stocker les données de manière structurée, ajouter, supprimer, modifier et consulter les données, assurer la sécurité et optimisé les preformances des requêtes.  
@@ -45,7 +45,7 @@ SGBD en mémoire (In-Memory)
 Stocke les données directement dans la mémoire vive (RAM) pour des performances accrues.
 Exemple : SAP HANA, Redis.  
 
-![alt text](https://github.com/ali-bousrira/hello-dbms/blob/main/SGBD.jpg?raw=true)  
+![alt text](https://github.com/ali-bousrira/hello-dbms/blob/main/image/SGBD.jpg?raw=true)  
 
 ## E.  
 Une base de données relationnelle (RDB - Relational Database) est une base de données organisée en tables contenant des lignes (enregistrements) et des colonnes (attributs). Ces tables sont liées entre elles grâce à des relations, définies par des clés primaires et des clés étrangères.  
