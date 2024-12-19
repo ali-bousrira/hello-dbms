@@ -4,6 +4,6 @@ Job 2 :
 3. SELECT Country FROM world WHERE Country like '%y ';
 4. SELECT Country FROM world WHERE Country like '%land ';
 5. SELECT Country FROM world WHERE Country LIKE '%w%';
-6. SELECT Country FROM world WHERE Country LIKE '%oo%' or name LIKE '%ee%';
+6. SELECT Country FROM world WHERE Country LIKE '%oo%' or Country LIKE '%ee%';
 7. SELECT Country FROM world WHERE LENGTH(Country) - LENGTH(REPLACE(Country, 'a', '')) >= 3;
 8. SELECT Country FROM world WHERE Country LIKE '_r%';
