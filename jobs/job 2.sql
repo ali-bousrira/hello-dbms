@@ -1,9 +1,9 @@
 Job 2 : 
-1. SELECT name FROM world WHERE name = "B%";
-2. SELECT name FROM world WHERE name = "Al%";
-3. SELECT name FROM world WHERE name = "%y";
-4. SELECT name FROM world WHERE name = "%land";
-5. SELECT name FROM world WHERE name LIKE "%w%";
-6. SELECT name FROM world WHERE name LIKE "%oo%" or name LIKE "%ee%";
-7. SELECT name FROM world WHERE LENGTH(name) - LENGTH(REPLACE(name, 'a', '')) >= 3;
-8. SELECT name FROM world WHERE name LIKE "_r%";
+1. SELECT Country FROM world WHERE Country like 'B%';
+2. SELECT Country FROM world WHERE Country like 'Al%';
+3. SELECT Country FROM world WHERE Country like '%y ';
+4. SELECT Country FROM world WHERE Country like '%land ';
+5. SELECT Country FROM world WHERE Country LIKE '%w%';
+6. SELECT Country FROM world WHERE Country LIKE '%oo%' or Country LIKE '%ee%';
+7. SELECT Country FROM world WHERE LENGTH(Country) - LENGTH(REPLACE(Country, 'a', '')) >= 3;
+8. SELECT Country FROM world WHERE Country LIKE '_r%';
