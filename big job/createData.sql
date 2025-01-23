@@ -1,0 +1,25 @@
+CREATE DATABASE CarbonFootprint;
+
+USE CarbonFootprint;
+
+CREATE TABLE Country (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    Country VARCHAR(255) NOT NULL,
+    Coal FLOAT NOT NULL,
+    Gas FLOAT NOT NULL,
+    Oil FLOAT NOT NULL,
+    Hydro FLOAT NOT NULL,
+    Renewable FLOAT NOT NULL,
+    Nuclear FLOAT NOT NULL
+);
+
+CREATE TABLE World (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    Region VARCHAR(255) NOT NULL,
+    Coal FLOAT NOT NULL,
+    Gas FLOAT NOT NULL,
+    Oil FLOAT NOT NULL,
+    Hydro FLOAT NOT NULL,
+    Renewable FLOAT NOT NULL,
+    Nuclear FLOAT NOT NULL
+);
