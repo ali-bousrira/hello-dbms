@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌍 Calculateur d'Empreinte Carbone</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>🌱 Calculateur d'Empreinte Carbone</h1>
+        <form method="POST" class="form">
+            <div class="form-group">
+                <label for="country">🌎 Choisissez un pays :</label>
+                <select name="country" id="country" onchange="handleSelection('country')" {{ 'disabled' if selected_region else '' }}>
+                    <option value="">-- Aucun --</option>
+                    {% for country in countries|unique %}
+                        <option value="{{ country }}" {{ 'selected' if country == selected_country else '' }}>{{ country }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="region">🗺️ Choisissez une région :</label>
+                <select name="region" id="region" onchange="handleSelection('region')" {{ 'disabled' if selected_country else '' }}>
+                    <option value="">-- Aucun --</option>
+                    {% for region in regions|unique %}
+                        <option value="{{ region }}" {{ 'selected' if region == selected_region else '' }}>{{ region }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="consumption">⚡ Consommation électrique (kW) :</label>
+                <input type="number" name="consumption" id="consumption" value="{{ consumption }}" min="0.1" step="0.1" required>
+            </div>
+
+            <button type="submit">🔍 Calculer</button>
+        </form>
+
+        {% if result %}
+        <div class="results">
+            <h2>📊 Résultats pour 
+                {% if selected_country %}<span class="highlight">{{ selected_country }}</span>{% endif %}
+                {% if selected_region %}<span class="highlight">{{ selected_region }}</span>{% endif %}
+            </h2>
+
+            <canvas id="emissionChart" width="400" height="200"></canvas>
+
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>Source d'énergie</th>
+                        <th>Contribution (gCO₂/kWh)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for source, contribution in result['contributions'].items() %}
+                        <tr>
+                            <td>{{ source.capitalize() }}</td>
+                            <td>{{ contribution | round(2) }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <div class="summary">
+                <p><strong>🔢 Émission totale :</strong> <span class="highlight">{{ result['total_emission'] | round(2) }}</span> gCO₂/kWh</p>
+                <p><strong>📅 Émission annuelle :</strong> <span class="highlight">{{ result['annual_emission_kg'] | round(2) }}</span> kgCO₂</p>
+                <p><strong>🌳 Arbres nécessaires :</strong> <span class="highlight">{{ result['trees_needed'] | round(2) }}</span></p>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <script>
+        function handleSelection(type) {
+            const countrySelect = document.getElementById('country');
+            const regionSelect = document.getElementById('region');
+
+            if (type === 'country') {
+                regionSelect.value = "";
+                regionSelect.disabled = countrySelect.value !== "";
+            } else if (type === 'region') {
+                countrySelect.value = "";
+                countrySelect.disabled = regionSelect.value !== "";
+            }
+        }
+    </script>
+</body>
+</html>
