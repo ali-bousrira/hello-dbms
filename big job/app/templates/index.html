@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculateur d'Empreinte Carbone</title>
+</head>
+<body>
+    <h1>Bienvenue sur le Calculateur d'Empreinte Carbone</h1>
+    <form action="/" method="post">
+        <label for="country">Sélectionnez un pays :</label>
+        <select name="country" id="country">
+            {% for country in countries %}
+            <option value="{{ country }}">{{ country }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Calculer</button>
+    </form>
+</body>
+</html>

@@ -8,7 +8,7 @@ data_world = pd.read_csv(file_path_world)
 
 connection = mysql.connector.connect(
     host="localhost",
-    user="user",       
+    user="root@localhost",       
     password="mdp",  
     database="CarbonFootprint"
 )
